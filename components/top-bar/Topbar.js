@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text, View } from 'react-native';
+import CardPictureTopbar from '../Cards/top-bar-cards/CardTopBar';
 
 
 
 
 const BackgroundTopbar = styled.View`
 flex:1;
-background-color: #c6c6c0;
+background-color: #3e8769;
 padding-top: 50px;
 `;
 
@@ -33,6 +34,8 @@ Topbar.Title = styled.Text``;
 
 Topbar.SubTitle = styled.Text``;
 
+const CardPictureLogo = styled.View``;
+
 const ScreenTopbar = () => {
     return (
         <BackgroundTopbar>
@@ -52,7 +55,9 @@ const ScreenTopbar = () => {
                 </Topbar.Right>
 
             </Topbar>
-
+            <CardPictureLogo>
+<CardPictureTopbar/>
+            </CardPictureLogo>
         </BackgroundTopbar>
 
     );

@@ -2,11 +2,12 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import styled from 'styled-components';
 import ScreenTopbar from '../components/top-bar/Topbar';
+import ScreenLogin from './Login';
 
 
 const Background = styled.View`
     flex: 1;
-    background-color: grey;
+    background-color: #fff;
 `;
 
 
@@ -15,7 +16,7 @@ const ScreenBody = () => {
         <Background>
             
            <ScreenTopbar/>
-
+            <ScreenLogin/>
         </Background>
     );
 }
