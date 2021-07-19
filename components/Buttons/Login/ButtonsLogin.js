@@ -1,10 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Alert } from 'react-native';
 import { Button } from 'react-native-paper';
 
 
 
+
+export const ButtonRegister = () =>{
+    const navigation = useNavigation();
+   
+
+  return(  <Button mode="text" color="#ff0000" onPress={ () => navigation.navigate('Sing')}>
+  Cadastrar
+</Button>
+);
+}
 export const ButtonForgotPass = () =>{
+
    
   return(  <Button mode="text" color="#ff0000" onPress={ () => Alert.alert('Enviando E-mail de recuperação de Senha')}>
   ESQUECI MINHA SENHA

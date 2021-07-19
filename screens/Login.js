@@ -1,19 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonForgotPass, ButtonDeleteMyData, ButtonConfirm } from '../components/Buttons/Login/ButtonsLogin';
+import { ButtonForgotPass, ButtonDeleteMyData, ButtonConfirm, ButtonRegister } from '../components/Buttons/Login/ButtonsLogin';
 import { PassInput } from '../components/Campos-Input/Login/InputPasslogin';
+import HeaderGlobal from '../components/Headers/Login/HeaderGeneric';
+import { Text } from 'react-native';
 
-const Separador = styled.View`
 
 
+
+
+const Version = styled.Text`
+
+height: 50px;
+padding-right: 10px;
+text-align: right;
 `;
 
-const BackgroundLogin = styled.View``;
+const Background = styled.View`
+
+    background-color: #fff;`;
+    
+    
 
 const CardLogin = styled.View`
 
-justify-content: center;
 padding-bottom: 20px;
+
+
 `;
 
 
@@ -25,40 +38,49 @@ position: relative;
 border-width: 5px;
 border-color: #91d6b9;
 border-radius: 25px;
-bottom:70px;
-height: 250px;
-width: 200px;
+bottom: 65px;
+height: 220px;
+width: 180px;
 `;
 
 CardLogin.PassInput = styled.View`
-padding-bottom: 100px;
+padding-bottom: 80px;
 `;
 
 
 CardLogin.Buttons = styled.View`
 
 `;
+const ScreenLogin = ({navigation}) => {
 
-const ScreenLogin = () => {
+   
     return (
-        <BackgroundLogin>
 
+        <Background>
+
+<HeaderGlobal />
+            
             <CardLogin>
                 <CardLogin.Picture>
 
                 </CardLogin.Picture>
+
                 <CardLogin.PassInput>
-                <PassInput />
+                    <PassInput />
                 </CardLogin.PassInput>
 
                 <CardLogin.Buttons>
+                    <ButtonRegister/>
                     <ButtonForgotPass />
                     <ButtonDeleteMyData />
+                    <Version>
+                        Versão 1.0.0
+                    </Version>
                     <ButtonConfirm />
+                   
                 </CardLogin.Buttons>
             </CardLogin>
-
-        </BackgroundLogin>
+        </Background>
     );
 }
 

@@ -1,12 +1,28 @@
 import React from 'react';
-import { Card } from 'react-native-paper';
+import { Image } from 'react-native';
+
+import styled from 'styled-components';
+
+const BackgrounPic = styled.View`
+
+background-color: #3e8769;
+height: 200px;
+
+`;
+
+const Picture = styled.Image`
+align-self: center;
+
+`;
 
 
-const image = 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Prtb-logo.png';
+const imageUri = 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Prtb-logo.png';
+
+const imageDir = '../../../assets/Prtb-logo.png';
 const CardPictureTopbar = () => (
-    <Card>
-        <Card.Cover source={{uri: image}}/>
-  </Card>
+  <BackgrounPic>
+    <Picture source={ require(imageDir)} />
+    </BackgrounPic>
 );
 
 
