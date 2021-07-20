@@ -10,21 +10,24 @@ export const ButtonRegister = () =>{
     const navigation = useNavigation();
    
 
-  return(  <Button mode="text" color="#ff0000" onPress={ () => navigation.navigate('Sing')}>
+  return(  <Button mode="text" color="#ff0000" onPress={ () => navigation.navigate('Register')}>
   Cadastrar
 </Button>
 );
 }
 export const ButtonForgotPass = () =>{
+    const navigation = useNavigation();
 
    
-  return(  <Button mode="text" color="#ff0000" onPress={ () => Alert.alert('Enviando E-mail de recuperação de Senha')}>
+  return(  
+  <Button mode="text" color="#ff0000" onPress={async () => navigation.navigate('ForgotPass')}>
   ESQUECI MINHA SENHA
 </Button>
 );
 }
 
 export const ButtonDeleteMyData = () => {
+    const navigation = useNavigation();
 
    return( <Button mode="text" color="#ff0000" onPress={ () => Alert.alert('Apagando Dados de Usuário!...')}>
    APAGAR MEUS DADOS

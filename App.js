@@ -2,31 +2,42 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import ScreenLogin from './screens/Login';
-import ScreenSing from './screens/Sing';
+import { AuthProvider } from './contexts/auth';
+
+import Routes from './routes';
 
 
-const Stack = createStackNavigator();
 
-const App = () =>{
+
+
+const App = () => {
+
+
   return (
-  <NavigationContainer>
-    <Stack.Navigator headerMode={false}>
-    <Stack.Screen
-    name='Login'
-    component={ScreenLogin}
-
-    />
-    <Stack.Screen
-    name='Sing'
-    component={ScreenSing}
-
-    />
-
-
-    </Stack.Navigator>
-    
-  </NavigationContainer>
+    <NavigationContainer>
+      <AuthProvider>
+      <Routes/>
+    </AuthProvider>
+    </NavigationContainer>
   );
 }
 export default App;
+
+/**
+
+  const Stack = createStackNavigator();
+  <Stack.Navigator headerMode={false}>
+    <Stack.Screen
+    name='SignIn'
+    component={ScreenSignIn}
+
+    />
+
+    <Stack.Screen
+    name='Register'
+    component={ScreenRegister}
+
+    />
+
+    </Stack.Navigator>
+     */

@@ -20,7 +20,7 @@ border-radius: 15px;
 border-color: grey;
 border-width: 4px;
 height: 60px;
-margin: 4px;
+margin: 3px;
 font-size: 16px;
 
 `;

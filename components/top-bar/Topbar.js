@@ -8,7 +8,7 @@ import { Text, View } from 'react-native';
 const BackgroundTopbar = styled.View`
 
 background-color: #3e8769;
-padding-top: 50px;
+
 `;
 
 const Topbar = styled.View`

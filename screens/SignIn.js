@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { ButtonForgotPass, ButtonDeleteMyData, ButtonConfirm, ButtonRegister } from '../components/Buttons/Login/ButtonsLogin';
 import { PassInput } from '../components/Campos-Input/Login/InputPasslogin';
 import HeaderGlobal from '../components/Headers/Login/HeaderGeneric';
 import { Text } from 'react-native';
+import { BtnSignIn } from './../components/Buttons/Login/ButtonsOAuth';
 
 
 
@@ -19,10 +20,10 @@ text-align: right;
 const Background = styled.View`
 
     background-color: #fff;`;
-    
-    
 
-const CardLogin = styled.View`
+
+
+const ContainerTela = styled.View`
 
 padding-bottom: 20px;
 
@@ -31,7 +32,7 @@ padding-bottom: 20px;
 
 
 
-CardLogin.Picture = styled.View`
+ContainerTela.Picture = styled.View`
 align-self: center;
 background-color: grey;
 position: relative;
@@ -43,45 +44,43 @@ height: 220px;
 width: 180px;
 `;
 
-CardLogin.PassInput = styled.View`
+ContainerTela.PassInput = styled.View`
 padding-bottom: 80px;
 `;
 
 
-CardLogin.Buttons = styled.View`
+ContainerTela.Buttons = styled.View`
 
 `;
-const ScreenLogin = ({navigation}) => {
+const ScreenSignIn = ({ navigation }) => {
 
-   
     return (
 
         <Background>
 
-<HeaderGlobal />
-            
-            <CardLogin>
-                <CardLogin.Picture>
+            <HeaderGlobal />
 
-                </CardLogin.Picture>
+            <ContainerTela>
+                <ContainerTela.Picture>
 
-                <CardLogin.PassInput>
+                </ContainerTela.Picture>
+
+                <ContainerTela.PassInput>
                     <PassInput />
-                </CardLogin.PassInput>
-
-                <CardLogin.Buttons>
-                    <ButtonRegister/>
+                </ContainerTela.PassInput>
+                <ContainerTela.Buttons>
                     <ButtonForgotPass />
+                    <ButtonRegister />
                     <ButtonDeleteMyData />
                     <Version>
                         Versão 1.0.0
                     </Version>
-                    <ButtonConfirm />
-                   
-                </CardLogin.Buttons>
-            </CardLogin>
+
+                    <BtnSignIn />
+                </ContainerTela.Buttons>
+            </ContainerTela>
         </Background>
     );
 }
 
-export default ScreenLogin;
+export default ScreenSignIn;

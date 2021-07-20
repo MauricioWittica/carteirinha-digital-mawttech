@@ -1,12 +1,14 @@
 import React from 'react';
 import { Image } from 'react-native';
-
 import styled from 'styled-components';
+
 
 const BackgrounPic = styled.View`
 
 background-color: #3e8769;
-height: 200px;
+height: 150px;
+
+padding-bottom: 200px;
 
 `;
 
