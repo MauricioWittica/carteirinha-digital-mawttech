@@ -6,9 +6,15 @@ import { Alert } from 'react-native';
 
 const Background = styled.View``;
 
-const Card = styled.View``;
+const Card = styled.View`
+padding: 20px;
+justify-content: center;
+align-items: center;
+
+`;
 Card.Title = styled.Text`
 font-size: 30px;
+text-align: center;
 `;
 const ScreenForgotPass = ({navigation,route}) => {
 return(
