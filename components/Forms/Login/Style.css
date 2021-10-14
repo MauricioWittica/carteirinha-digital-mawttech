@@ -1,0 +1,66 @@
+.form-contate label {
+
+    font-size: 18pt;
+
+
+}
+
+.form-contate .text-area,
+.input {
+    border          : 2px solid #e9e9e9;
+    background-color: rgb(253, 251, 220);
+    color           : #555;
+    border-radius   : 10px;
+    letter-spacing  : 1px;
+    width           : 100%;
+    font-size       : 14pt;
+    margin-bottom   : 30px;
+    line-height     : 45px;
+    max-width       : 850px;
+    padding         : 10px 10px 10px 10px;
+
+
+
+}
+
+.form-contate button {
+    border-radius   : 10px;
+    background-color: #00a6d8;
+    width           : 150px;
+    height          : 45px;
+    box-shadow      : 1px 2px 5px 2px rgba(0, 0, 0, 0.2);
+    color           : #fff;
+    display         : flex;
+    justify-items   : center;
+    align-items     : center;
+}
+
+.form-contate button span {
+    flex      : auto;
+    align-self: center;
+}
+
+
+
+.form-contate button:hover {
+    color     : #555;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2);
+
+    border: 2px solid #e9e9e9;
+    cursor: pointer;
+}
+
+.input {
+
+    height: 45px;
+
+}
+
+
+.text-area {
+
+    height    : 250px;
+    max-height: 250px;
+    max-width : 850px;
+
+}
