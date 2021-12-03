@@ -8,8 +8,8 @@ import PopupNavMenuSignIn from './../PopuNavMenuSignIn';
 import PopupNavMenuDashboard from './../PopupNavMenuDashboard';
 import PopupNavMenuRegister from './../PopupNavMenuRegister';
 import PopupNavMenuForgotPass from './../PopupNavMenuForgotPass';
-import PopupNavMenuVerification from './../PopupNavMenuVerification';
 import { ButtonNavMenuContext } from '../../../contexts/buttonNavMenu';
+import PopupNavMenuBoxMessages from './../PopupNavMenuBoxMessages';
 
 
 
@@ -29,7 +29,7 @@ const NavMenuGerente = (props) => {
         break;
       case 'ForgotPass': return <PopupNavMenuForgotPass />
         break;
-      case 'Verification': return <PopupNavMenuVerification />
+      case 'BoxMessages': return <PopupNavMenuBoxMessages />
         break;
       default: return null
         break;

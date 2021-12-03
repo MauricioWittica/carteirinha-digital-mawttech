@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Text, View } from 'react-native';
-import {IconButton} from 'react-native-paper';
+import { IconButton } from 'react-native-paper';
 import { MoreVertIcon } from '../icons/More-Vert';
 import { mdiSizeL } from '@mdi/js';
 import { ChevronLeftIcon } from '../icons/Chevron';
-import { useState } from 'react';
+import { useState} from 'react';
 import { BtnOut } from '../Buttons/ScreenSignIn/ButtonsOAuth';
 import { UserIcon } from './../icons/User/index';
+import { useNavigation } from '@react-navigation/native';
+import { VCardIcon } from '../icons/VCard';
+import { MessageIcon } from '../icons/Message';
 
 
 
@@ -16,80 +19,102 @@ const BackgroundFooerbar = styled.View`
 background-color: #3e8769;
 
 position: relative;
-border-top-width: 5px;
+border-top-width: 3px;
 border-color: #919057;
 bottom:0px;
+
 `;
 
-const Topbar = styled.View`
+const FooterBar = styled.View`
 flex-direction: row;`;
 
-Topbar.Left = styled.View`
+FooterBar.Left = styled.View`
 flex:1;
-border-width: 2px;
 
-border-color: grey;
+align-items: center;
+
 `;
 
-Topbar.Right = styled.View`
+FooterBar.Right = styled.View`
 flex:1;
-flex-direction:row-reverse;
-justify-content: center;
-border-width: 2px;
-border-color: grey;
+
+align-items: center;
+
 `;
 
-Topbar.Middle = styled.View`
-flex:4;
+FooterBar.Middle = styled.View`
+flex:2;
 border-color: grey;
 flex-direction: row;
+align-items: center;
+justify-content: center;
+
+`;
+FooterBar.Middle.Item = styled.View`
+flex:1;
+
+align-items: center;
 `;
 
+FooterBar.Title = styled.Text``;
 
-Topbar.Title = styled.Text``;
+FooterBar.SubTitle = styled.Text``;
 
-Topbar.SubTitle = styled.Text``;
+//
+
+const Footerbar = (props) => {
+console.log(props.screen)
+
+const styleActionPageOff = {
+    background: '#3e8769',
+    color: '#ececec'
+}
+
+const styleActionPageOn = {
+    background: '#919057',
+    color: 'black'
+}
 
 
 
-const FooterbarComponent = () => {
+    const navigation = useNavigation();
     return (
         <BackgroundFooerbar>
-            <Topbar>
+            <FooterBar>
 
-                <Topbar.Left>
-                <IconButton icon={({size,color})=>(
-                    <ChevronLeftIcon size={24} color="black"/>
-                )} onPress={()=>{}}/>
-                    
-                </Topbar.Left>
+                <FooterBar.Left style={{backgroundColor: (props.screen === 'Dashboard' ? styleActionPageOn.background : styleActionPageOff.background)}}>
+                    <IconButton  icon={({ size, color }) => (
+                        <VCardIcon size={30} color={(props.screen === 'Dashboard' ? styleActionPageOn.color : styleActionPageOff.color)} />
+                    )} onPress={() =>  navigation.navigate('DashBoard')} />
 
-                <Topbar.Middle>
-                <IconButton icon={({size,color})=>(
-                    <UserIcon size={30} color="black"/>
-                )} onPress={()=>{}}/>
-                <IconButton icon={({size,color})=>(
-                    <UserIcon size={30} color="black"/>
-                )} onPress={()=>{}}/>
-                <IconButton icon={({size,color})=>(
-                    <UserIcon size={30} color="black"/>
-                )} onPress={()=>{}}/>
-                <IconButton icon={({size,color})=>(
-                    <UserIcon size={30} color="black"/>
-                )} onPress={()=>{}}/>
-                </Topbar.Middle>
+                </FooterBar.Left>
 
-                <Topbar.Right>
-               
-             <BtnOut/>
-                   
-                </Topbar.Right>
+                <FooterBar.Middle>
 
-            </Topbar>
-           
+                    <FooterBar.Middle.Item style={{backgroundColor: (props.screen === 'BoxMessages' ? styleActionPageOn.background : styleActionPageOff.background)}}>
+                        <IconButton icon={({ size, color }) => (
+                            <MessageIcon size={30} color={(props.screen === 'BoxMessages' ? styleActionPageOn.color : styleActionPageOff.color)} />
+                        )} onPress={() => navigation.navigate('BoxMessages')}/>
+                    </FooterBar.Middle.Item>
+
+
+                    <FooterBar.Middle.Item style={{backgroundColor: (props.screen === 'CardEdit' ? styleActionPageOn.background : styleActionPageOff.background)}}>
+                        <IconButton icon={({ size, color }) => (
+                            <UserIcon size={24} color={(props.screen === 'CardEdit' ? styleActionPageOn.color : styleActionPageOff.color)} />
+                        )} onPress={() => navigation.navigate('CardEdit')} />
+                    </FooterBar.Middle.Item>
+                </FooterBar.Middle>
+
+                <FooterBar.Right>
+
+                    <BtnOut size={30} color={ styleActionPageOff.color}/>
+                </FooterBar.Right>
+
+            </FooterBar>
+
         </BackgroundFooerbar>
 
     );
 }
 
-export default FooterbarComponent;
+export default Footerbar;

@@ -1,7 +1,16 @@
-import React, { useRef } from 'react';
-import { View, Alert, TextInput, Button } from 'react-native';
+import React, { useContext, useRef } from 'react';
+import { View, Alert, TextInput, Button, Text } from 'react-native';
 import { useEffect } from 'react';
-import {register} from '../../../services/register-mannerger'
+
+
+import { Input } from './../Inputs/Simples/index';
+import { AuthContext } from './../../../contexts/auth';
+import { useNavigation } from '@react-navigation/native';
+import { FirstStepsContext } from './../../../contexts/firstStepsActions';
+import { HaveAccountButton } from './../../Buttons/HaveAccount/index';
+
+
+
 
 interface InputReference extends TextInput {
 
@@ -17,9 +26,15 @@ interface FormData {
     passwordReview: string
 }
 
-
+interface ResponseRegisterUser {
+    message: string
+    erro: boolean
+    id: string
+}
 
 export const RegisterForm = () => {
+    const navigation = useNavigation()
+   const { registerUsers , signed} = useContext(AuthContext)
     const firstNameRef = useRef<InputReference>(null)
     const lastNameRef = useRef<InputReference>(null)
     const emailRef = useRef<InputReference>(null)
@@ -30,18 +45,11 @@ export const RegisterForm = () => {
 
 
 
-    useEffect(() => {
+  
 
-        if ((firstNameRef.current)) {
-            console.log(firstNameRef.current.value)
-        }
+    function verificarPassword(passRef1, passRef2) {
 
-
-    }, [])
-
-    function verificarPassword(passRef1, passRef2){
-
-        if(passRef1.current.value?.trim() != passRef2.current.value?.trim()){
+        if (passRef1.current.value?.trim() != passRef2.current.value?.trim()) {
             Alert.alert('Configuração de senha invalida ', 'A senha deve ser igual nos dois campos (Senha e Confirmar Senha).')
             return false
         }
@@ -50,15 +58,15 @@ export const RegisterForm = () => {
         if (inputRef.current.value?.trim()) {
             return true
         } else {
-        Alert.alert('Campos obrigatórios ', 'Um ou mais campos obrigatorios estão sem preencher.')
+            Alert.alert('Campos obrigatórios ', 'Um ou mais campos obrigatorios estão sem preencher.')
 
             return false
         }
     }
 
-    
+
     function handlesForm() {
-        
+
         if (!verificarInput(firstNameRef)) {
             firstNameRef.current.focus()
             firstNameRef.current.clear()
@@ -77,23 +85,28 @@ export const RegisterForm = () => {
         } else if (!verificarInput(passwordReviewRef)) {
             passwordReviewRef.current.focus()
             passwordReviewRef.current.clear()
-
-        }else if(verificarPassword(passwordRef, passwordReviewRef)){
+            
+        } else if (verificarPassword(passwordRef, passwordReviewRef)) {
+            passwordRef.current.clear()
+            passwordReviewRef.current.clear()
             passwordRef.current.focus()
 
-        }else{
+        } else {
             let data = {
-                first_name : firstNameRef.current.value,
-                last_name : lastNameRef.current.value,
-                email : emailRef.current.value,
-                password : passwordRef.current.value
+                first_name: firstNameRef.current.value,
+                last_name: lastNameRef.current.value,
+                email: emailRef.current.value,
+                password: passwordRef.current.value
             }
-    
-            register(data)
-            console.log(data)
-        }
+
+          registerUsers(data)
+             
+            
+    console.log('valor account ' + signed)
+         }
         
-        
+
+
 
 
     }
@@ -109,9 +122,11 @@ export const RegisterForm = () => {
     return (
         <View>
 
-            <TextInput
-                placeholder='Ex: João'
-                ref={firstNameRef}
+
+            <Input
+                field='Nome'
+                placeholder='João'
+                inputRef={firstNameRef}
 
                 onChangeText={(text) => { firstNameRef.current.value = text }}
 
@@ -124,9 +139,11 @@ export const RegisterForm = () => {
                 keyboardType="default"
             />
 
-            <TextInput
-                placeholder='Ex: Batista'
-                ref={lastNameRef}
+
+            <Input
+                field='Sobrenome'
+                placeholder='Batista'
+                inputRef={lastNameRef}
                 autoCompleteType='name'
                 onChangeText={(text) => { lastNameRef.current.value = text }}
 
@@ -138,9 +155,11 @@ export const RegisterForm = () => {
                 keyboardType="default"
             />
 
-            <TextInput
-                placeholder='ex: exemplo@email.com'
-                ref={emailRef}
+
+            <Input
+                field='E-mail'
+                placeholder='exemplo@email.com'
+                inputRef={emailRef}
                 autoCompleteType='email'
                 onChangeText={(text) => { emailRef.current.value = text }}
 
@@ -152,13 +171,13 @@ export const RegisterForm = () => {
                 keyboardType="email-address"
             />
 
-            <TextInput
-                maxLength={20}
+            <Input
+                field='Senha'
+                maxLength={6}
                 placeholder='* * * * * * * *'
-                ref={passwordRef}
+                inputRef={passwordRef}
                 autoCompleteType='password'
                 onChangeText={(text) => { passwordRef.current.value = text }}
-
 
                 onSubmitEditing={() => { passwordReviewRef.current.focus(); }}
                 blurOnSubmit={false}
@@ -169,21 +188,26 @@ export const RegisterForm = () => {
                 returnKeyType={"next"}
             />
 
-            <TextInput
-                maxLength={20}
+            <Input
+                field='Confirme a senha'
+                maxLength={6}
                 placeholder='* * * * * * * *'
-                ref={passwordReviewRef}
+                inputRef={passwordReviewRef}
                 autoCompleteType='password'
                 onChangeText={(text) => { passwordReviewRef.current.value = text }}
 
                 onSubmitEditing={() => { passwordReviewRef.current.focus(); }}
-
                 secureTextEntry
                 returnKeyType={"default"}
             />
 
-            <Button ref={buttonRef} title="send" onPress={() => { handlesForm()}} />
+            <Text></Text>
 
+            <Button ref={buttonRef} title="Criar Conta" onPress={() => { handlesForm() }} />
+
+            <Text></Text>
+                       <HaveAccountButton/>
+            
         </View>
     );
 }

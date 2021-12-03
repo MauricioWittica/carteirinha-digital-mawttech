@@ -1,22 +1,33 @@
+import React, { useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
 import { Alert } from 'react-native';
 import { Button } from 'react-native-paper';
-
+import { FirstStepsContext } from '../../../contexts/firstStepsActions';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 
 export const ButtonRegister = () => {
-    const navigation = useNavigation();
+    const {setShowFirstSteps} = useContext(FirstStepsContext)
+
+    const goRegister = async () => {  
+
+       await AsyncStorage.setItem('@MAW_PRTB_FirtSteps:showFirstStpes', 'show');
 
 
-    return (<Button mode="text" color="#ff0000" onPress={() => navigation.navigate('Register')}>
+        setShowFirstSteps('show')
+    
+    }
+
+
+    return (<Button mode="text" color="#ff0000" onPress={() => goRegister()}>
         Cadastrar
     </Button>
     );
 }
 export const ButtonForgotPass = () => {
     const navigation = useNavigation();
+
 
 
     return (
@@ -28,16 +39,15 @@ export const ButtonForgotPass = () => {
 
 
 export const ButtonDeleteMyData = () => {
-    const navigation = useNavigation();
 
-let deleteWarning = () => Alert.alert('Concuído','Dados apagados com sucesso!');
+    let deleteWarning = () => Alert.alert('Concluído', 'Dados apagados com sucesso!');
 
-    let alertWarnig  = () => Alert.alert('Aviso',
+    let alertWarnig = () => Alert.alert('Aviso',
         'Se continuar seus dados de login serão apagados.\nPrecione "canselar" para recusar esta operação.',
         [
-            { text: 'Cancelar', onPress: () =>  console.log('Cacelar on clicked!'), style: 'cancel'},
-            { text: 'Continue', onPress: () => {deleteWarning(), console.log('Continuer on clicked!') }}
-        ] 
+            { text: 'Cancelar', onPress: () => console.log('Cacelar on clicked!'), style: 'cancel' },
+            { text: 'Continue', onPress: () => { deleteWarning(), console.log('Continue on clicked!') } }
+        ]
     );
 
     return (<Button mode="text" color="#ff0000" onPress={() => alertWarnig()}>

@@ -8,8 +8,19 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ffffff",
+      "plugins":[
+        [
+          "expo-media-library",
+          {
+            "photosPermissions": "Allow $(MAWittech) to acess your photos.",
+            "savePhotosPermissions": "Allow $(MAWittech) to save photos."
+            
+          }
+        ]
+      ]
     },
+   
     "updates": {
       "fallbackToCacheTimeout": 0
     },

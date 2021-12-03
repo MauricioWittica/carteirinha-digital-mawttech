@@ -22,9 +22,9 @@ const navigation = useNavigation();
                             </Pressable>
                             <Pressable
                                 style={[styles.button]}
-                                onPress={() => { navigation.navigate('Verification') , toggleButton()}}
+                                onPress={() => { navigation.navigate('BoxMessages') , toggleButton()}}
                             >
-                                <Text style={styles.textStyle}>QR-Code de Vadalidação</Text>
+                                <Text style={styles.textStyle}>Menssagens</Text>
                             </Pressable>
                         </View>
                  

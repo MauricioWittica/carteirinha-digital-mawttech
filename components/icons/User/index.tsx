@@ -1,12 +1,12 @@
 import React from "react";
-import {Ionicons} from '@expo/vector-icons';
+import {FontAwesome5} from '@expo/vector-icons';
 
 export const UserIcon = (props) => { 
 
 return(
 
   <>
-  <Ionicons name="person" size={props.size} color={props.color}/>
+  <FontAwesome5 name="user-edit" size={props.size} color={props.color}/>
   </>
 
 );

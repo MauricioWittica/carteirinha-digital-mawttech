@@ -25,21 +25,33 @@ export const BtnSignIn = (data) => {
         </View>
     );
 }
-
-export const BtnOut = () => {
+interface propsBtnOut{
+    size: number | string
+    color: string
+}
+export const BtnOut = (propsBtnOut) => {
 
     const {signOut} = useContext(AuthContext);
-  
+
     function handleSignOut() {
         console.log('Fazendo Logout...');
-        signOut();
+        Alert.alert('',
+        'Realmente deseja sair de sua conta ?',
+        [
+            { text: 'NÃO', onPress: () =>  console.log('NÃO on clicked!'), style: 'cancel'},
+            { text: 'SIM', onPress: () => {signOut(), console.log('SIM on clicked!') }}
+        ] 
+
+        
+    );
+
     }
 
 
     return (
         <View style={{flex:1}}>
             <IconButton icon={({size, color})=>(
-                <LogoutIcon size={24} color='black'/>
+                <LogoutIcon size={propsBtnOut.size} color={propsBtnOut.color}/>
             )} onPress={() =>{handleSignOut()}}/>
 
         </View>

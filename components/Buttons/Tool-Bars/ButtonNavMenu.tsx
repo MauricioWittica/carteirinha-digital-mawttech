@@ -14,7 +14,7 @@ const ButtonNavMenu = (props)=>{
 
 
     
-console.log(isEnabled ? "Abrindo NavMenu" : "Fechando NavMenu");
+//console.log(isEnabled ? "Abrindo NavMenu" : "Fechando NavMenu");
 
 
 

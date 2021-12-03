@@ -7,7 +7,7 @@ const BackgrounPic = styled.View`
 
 background-color: #3e8769;
 height: 130px;
-border-bottom-width: 5px;
+border-bottom-width: 3px;
 border-color: #919057;
 
 padding-bottom: 150px;
