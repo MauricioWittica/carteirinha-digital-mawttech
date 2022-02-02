@@ -8,12 +8,15 @@ import { CameraContext } from './../../../contexts/camera';
 
 const ButtonAvatarEdit : React.FC = () => {
     const navigation = useNavigation();
-    const {} = useContext(CameraContext)
+    const {setActiveCamEdit} = useContext(CameraContext)
 
+    function handleCamEdit(){
+        setActiveCamEdit(true)
+    }
 
     return(
         <IconButton style={styles.iconButton} icon={({ size, color }) => (
-            <ImageEditIcon size={32} color="#00a2ff" />)} onPress={() => {}} />
+            <ImageEditIcon size={32} color="#00a2ff" />)} onPress={() => {handleCamEdit()}} />
     );
 }
 

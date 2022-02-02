@@ -5,7 +5,6 @@ import { TouchableHighlight } from 'react-native';
 
 import { FirstStepsContext } from '../../contexts/firstStepsActions';
 import SucessofullRegisterIcon from "./../icons/Lottie/RegisterCard/index";
-import RegisterCardIcon from './../icons/Lottie/RegisterCard/index';
 
 
 
@@ -18,6 +17,9 @@ const FirstRegisterAccount = () => {
     const nextFirstSteps = () => {
         hiddenMessageRegisterAccount();
     }
+
+    
+
 
     return (
         <ScrollView>
@@ -40,6 +42,7 @@ const FirstRegisterAccount = () => {
 
 
                 <View style={styles.buttonContainer}>
+                    
                     <TouchableHighlight
                         activeOpacity={0.3}
                         underlayColor="#dddddd0"
@@ -48,6 +51,7 @@ const FirstRegisterAccount = () => {
                             <Text>Próximo</Text>
                         </View>
                     </TouchableHighlight>
+                    
                 </View>
 
 
@@ -59,7 +63,7 @@ const FirstRegisterAccount = () => {
 export default FirstRegisterAccount;
 
 
-const styles = StyleSheet.create(
+const styles = StyleSheet.create( 
     {
         container: {
             flex: 1,
@@ -119,9 +123,11 @@ const styles = StyleSheet.create(
             height: 50,
             width: 200,
             backgroundColor: '#00ccff',
+           
 
 
         },
+        
 
 
     }

@@ -4,18 +4,20 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import api from '../services/api';
 
 
-interface Picture {
+interface Photo {
 
-    height: string
+    height: number
     uri: string
-    width: string
+    width: number
 
 }
 
 interface CameraContextData {
     activeCamera: boolean
-    picture: Picture
-    avatarPicture: Picture
+    picture: Photo
+    avatarPicture: Photo
+    activeCamEdit: boolean
+    setActiveCamEdit(data): void 
     setAvatarPicture(data): void
     setPicture(data): void
 
@@ -27,13 +29,14 @@ export const CameraProvider = ({ children }) => {
     const [activeCamera, setActiveCamera] = useState(false);
     const [picture, setPicture] = useState(null)
     const [avatarPicture, setAvatarPicture] = useState(null)
+    const [activeCamEdit, setActiveCamEdit] = useState(false)
 
 
     useEffect(() => {
         async function loadStoragegetData() {
 
             try {
-                const storageAvatarPicture = await AsyncStorage.getItem('@MAW_PRTB_Camera:avatar_picture');
+                const storageAvatarPicture = await AsyncStorage.getItem('@MAWTTECH_Camera:avatar_picture');
 
                 if (storageAvatarPicture) {
                     setAvatarPicture(JSON.parse(storageAvatarPicture));
@@ -49,7 +52,7 @@ export const CameraProvider = ({ children }) => {
 
         loadStoragegetData();
     }, []);
-    //============Metodo para logar o usuario
+    
 
     
 
@@ -57,7 +60,7 @@ export const CameraProvider = ({ children }) => {
 
 
     return (
-        <CameraContext.Provider value={{ activeCamera, picture, avatarPicture, setAvatarPicture, setPicture }}>
+        <CameraContext.Provider value={{ activeCamEdit, setActiveCamEdit, activeCamera, picture, avatarPicture, setAvatarPicture, setPicture }}>
             {children}
         </CameraContext.Provider>);
 };

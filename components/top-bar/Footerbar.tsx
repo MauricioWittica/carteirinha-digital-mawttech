@@ -16,7 +16,7 @@ import { MessageIcon } from '../icons/Message';
 
 
 const BackgroundFooerbar = styled.View`
-background-color: #3e8769;
+background-color: #800000;
 
 position: relative;
 border-top-width: 3px;
@@ -60,13 +60,13 @@ FooterBar.Title = styled.Text``;
 
 FooterBar.SubTitle = styled.Text``;
 
-//
+
 
 const Footerbar = (props) => {
 console.log(props.screen)
 
 const styleActionPageOff = {
-    background: '#3e8769',
+    background: '#800000',
     color: '#ececec'
 }
 
@@ -75,7 +75,12 @@ const styleActionPageOn = {
     color: 'black'
 }
 
-
+/**
+                    <FooterBar.Middle.Item style={{backgroundColor: (props.screen === 'BoxMessages' ? styleActionPageOn.background : styleActionPageOff.background)}}>
+                        <IconButton icon={({ size, color }) => (
+                            <MessageIcon size={30} color={(props.screen === 'BoxMessages' ? styleActionPageOn.color : styleActionPageOff.color)} />
+                        )} onPress={() => navigation.navigate('BoxMessages')}/>
+                    </FooterBar.Middle.Item> */
 
     const navigation = useNavigation();
     return (
@@ -91,11 +96,6 @@ const styleActionPageOn = {
 
                 <FooterBar.Middle>
 
-                    <FooterBar.Middle.Item style={{backgroundColor: (props.screen === 'BoxMessages' ? styleActionPageOn.background : styleActionPageOff.background)}}>
-                        <IconButton icon={({ size, color }) => (
-                            <MessageIcon size={30} color={(props.screen === 'BoxMessages' ? styleActionPageOn.color : styleActionPageOff.color)} />
-                        )} onPress={() => navigation.navigate('BoxMessages')}/>
-                    </FooterBar.Middle.Item>
 
 
                     <FooterBar.Middle.Item style={{backgroundColor: (props.screen === 'CardEdit' ? styleActionPageOn.background : styleActionPageOff.background)}}>

@@ -14,7 +14,6 @@ import Contate from './../Modals/Contate/ModalContate';
 
 const BackgroundTopbar = styled.View`
 
-background-color: #3e8769;
 
 position: relative;
 top:0px;
@@ -56,9 +55,7 @@ const TopToolBar = () => {
             <Topbar>
 
                 <Topbar.Left>
-                    <IconButton icon={({ size, color }) => (
-                        <ChevronLeftIcon size={24} color="black" />
-                    )} onPress={() => { navigation.goBack()}} />
+                 
 
                 </Topbar.Left>
 

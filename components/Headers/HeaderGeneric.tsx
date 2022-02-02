@@ -6,8 +6,7 @@ import { StatusBar } from 'react-native';
 
 const BackgroundHeader = styled.View`
 flex:1;
-
-
+margin-top: 20px;
 `;
 
 const HeaderGlobal = () => {
@@ -15,7 +14,7 @@ const HeaderGlobal = () => {
     <BackgroundHeader>
         <CardPictureTopbar />
         
-        <StatusBar barStyle='light-content' backgroundColor='#3e8769'/>
+        <StatusBar  backgroundColor='#800000'/> 
     </BackgroundHeader>
     );
 }

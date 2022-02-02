@@ -168,7 +168,7 @@ export const PassForm = () => {
             maxLength={1}
             onSubmitEditing={() => { n2Ref.current.focus(); }}
             blurOnSubmit={false}
-           
+            autoFocus={true}
             secureTextEntry
 
           />
@@ -229,12 +229,12 @@ export const PassForm = () => {
 
           <ContainerPass.Input style={{ backgroundColor: input6 ? focuBackground.focused : focuBackground.unfocused }}
             ref={n6Ref}
-            returnKeyType={"send"}
+            returnKeyType={"next"}
             onChangeText={(text) => { setInput6(false), n6Ref.current.value = text, console.log(text) }}
             onFocus={() => setInput6(true)}
             maxLength={1}
             onEndEditing={() => setInput6(false)}
-            onSubmitEditing={() => { handleSignIn() }}
+            onSubmitEditing={() => { emailRef.current.focus(); }}
             secureTextEntry
 
           />
@@ -256,7 +256,7 @@ export const PassForm = () => {
          
           returnKeyType='send'
           keyboardType="email-address"
-          autoFocus={true}
+          
 
         />
 </View>

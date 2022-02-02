@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { View, Alert, TextInput, Button, Text } from 'react-native';
+import { View, Alert, TextInput, Button, Text, StatusBar } from 'react-native';
 import { useEffect } from 'react';
 
 
@@ -121,7 +121,7 @@ export const RegisterForm = () => {
 
     return (
         <View>
-
+ <StatusBar barStyle='light-content' backgroundColor='#800000'/> 
 
             <Input
                 field='Nome'
@@ -196,9 +196,9 @@ export const RegisterForm = () => {
                 autoCompleteType='password'
                 onChangeText={(text) => { passwordReviewRef.current.value = text }}
 
-                onSubmitEditing={() => { passwordReviewRef.current.focus(); }}
+                onSubmitEditing={() => { handlesForm() }}
                 secureTextEntry
-                returnKeyType={"default"}
+                returnKeyType={"send"}
             />
 
             <Text></Text>

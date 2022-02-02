@@ -18,17 +18,12 @@ const styles = StyleNavMenu;
 
        
                         <View style={styles.modalView}>
-                              <Pressable
-                                style={[styles.button]}
-                                onPress={() => { toggleButton() }}
-                            >
-                                <Text style={styles.textStyle}>Nossa Historia</Text>
-                            </Pressable>
+                            
                             <Pressable
                                 style={[styles.button]}
-                                onPress={() => { navigation.navigate('Register') , toggleButton()}}
+                                onPress={() => { navigation.navigate('History') , toggleButton()}}
                             >
-                                <Text style={styles.textStyle}>Cadastrar-se</Text>
+                                <Text style={styles.textStyle}>Nossa História</Text>
                             </Pressable>
                             <Pressable
                                 style={[styles.button]}

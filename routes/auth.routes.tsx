@@ -6,6 +6,7 @@ import ScreenRegister from '../screens/Register';
 import ScreenForgotPass from '../screens/ForgotPass';
 
 import ScreenCameraFront from '../components/Camera/index';
+import ScreenHistory from '../screens/History';
 
 
 
@@ -25,6 +26,8 @@ const AuthRoutes = () => (
             <AuthStack.Screen name='SignIn' component={ScreenSignIn} />
             <AuthStack.Screen name='ForgotPass' component={ScreenForgotPass} />
             <AuthStack.Screen name='Camera' component={ScreenCameraFront} />
+        <AuthStack.Screen name='History'component={ScreenHistory}/>
+
         </AuthStack.Navigator>
       
    

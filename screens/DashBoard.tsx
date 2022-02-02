@@ -176,6 +176,8 @@ font-size: 20px;
 align-self:center;
 `;
 ContainerTela.SectionText2_2.SectionSecao.ValueSecao = styled.Text`
+align-self:center;
+
 font-size: 25px;`;
 
 
@@ -195,14 +197,14 @@ const ScreenDashBoard = ({ navigation, route }) => {
         []
     );
 
-    useEffect(
+   /** useEffect(
 
         () => {
             async function showCard() {
                 getCard()
             }
             showCard()
-        }, []);
+        }, []); */
 
     return (
 
@@ -211,7 +213,7 @@ const ScreenDashBoard = ({ navigation, route }) => {
 
 
             <Background>
-                <TopToolBar />
+               
 
 
                 <ScrollView>
@@ -269,15 +271,7 @@ const ScreenDashBoard = ({ navigation, route }) => {
 
                             <ContainerTela.SectionText2>
 
-                                <ContainerTela.SectionText2.Filiacao>
-                                    <ContainerTela.SectionText2.Filiacao.Title>
-                                        Data Filiação
-                                    </ContainerTela.SectionText2.Filiacao.Title>
-                                    <ContainerTela.SectionText2.Filiacao.Value>
-                                        {card?.filiation_date}
-                                    </ContainerTela.SectionText2.Filiacao.Value>
-                                </ContainerTela.SectionText2.Filiacao>
-
+                               
 
                                 <View style={{ marginBottom: 15}}>
                                     <ContainerTela.Header.ElectorTitle >

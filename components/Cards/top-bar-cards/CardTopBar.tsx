@@ -5,27 +5,29 @@ import styled from 'styled-components';
 
 const BackgrounPic = styled.View`
 
-background-color: #3e8769;
-height: 130px;
-border-bottom-width: 3px;
-border-color: #919057;
 
-padding-bottom: 150px;
+height: 50px;
+
+
+
+padding-bottom: 100px;
+align-items: center;
+
 
 `;
+
 
 const Picture = styled.Image`
-align-self: center;
 
 `;
 
 
-const imageUri = 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Prtb-logo.png';
+//const imageUri = 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Prtb-logo.png';
 
-const imageDir = '../../../assets/Prtb-logo.png';
+const imageDir = '../../../assets/logotipo-mawttech-branco.png';
 const CardPictureTopbar = () => (
   <BackgrounPic>
-    <Picture source={ require(imageDir)} />
+    <Image source={require(imageDir)}/>
     </BackgrounPic>
 );
 

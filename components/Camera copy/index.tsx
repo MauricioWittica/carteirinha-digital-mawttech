@@ -26,39 +26,24 @@ interface ImageUser{
 }
 
 
-const CameraUser = (frontVSBack) => {
+const CameraUserEdit1 = (frontVSBack) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.front);
   const [flashMode, setFlashMode] = useState(Camera.Constants.FlashMode.on)
   const [autoFocus, setAutoFocus] = useState(Camera.Constants.AutoFocus.on)
-  const { setAvatarPicture, setPicture, avatarPicture, picture } = useContext(CameraContext);
+  const { setActiveCamEdit, setAvatarPicture, setPicture, avatarPicture, picture } = useContext(CameraContext);
   const { hiddenRegisterSelf } = useContext(FirstStepsContext);  
   const { saveSelf, idUser } = useContext(AuthContext);  
   const [openCam, setOpenCam] = useState(false)
-
+ 
   const cameraRef = useRef(null) 
 
-  
 
 
   useEffect(() => {
     (async () => {
       const { status } = await Camera.requestPermissionsAsync();
       setHasPermission(status === 'granted');
-
-      
-    })();
-
-
-
-  }, []);
-
-  
-  useEffect(() => {
-    (async () => {
-      
-const {status} = await MediaLibrary.requestPermissionsAsync();
-      
     })();
 
 
@@ -77,7 +62,7 @@ const {status} = await MediaLibrary.requestPermissionsAsync();
     if (cameraRef) {
       let photo = await cameraRef.current.takePictureAsync();
       setPicture(photo);
-      //console.log(photo)
+      console.log(photo)
       setOpenCam(true)
       
 
@@ -85,19 +70,22 @@ const {status} = await MediaLibrary.requestPermissionsAsync();
     //console.log(picture)
 
   }
+  function handleCamEdit(){
+    setActiveCamEdit(false)
+}
 
 const message = ()=>{
   Alert.alert(
     '','salvo com sucesso!',[
 
-      { text: 'OK', onPress: () =>  hiddenRegisterSelf()}
+      { text: 'OK', onPress: () =>  handleCamEdit()}
     ]
   )
 }
   async function savePicture() {
     try {
     const asset = await MediaLibrary.createAssetAsync(picture.uri)
-    console.log(asset)
+    //console.log(asset)
     const avatarPictureJson = {
       filename: asset.filename,
       type: asset.mediaType,
@@ -110,7 +98,7 @@ const message = ()=>{
     //console.log(asset) 
     await AsyncStorage.setItem('@MAWTTECH_Camera:avatar_picture', JSON.stringify(avatarPicture))
     message()
-   //saveSelf(asset, '50' )
+   saveSelf(asset, '50' )
       
     } catch (error) {
       console.log('err', error)
@@ -262,4 +250,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CameraUser;
+export default CameraUserEdit1;

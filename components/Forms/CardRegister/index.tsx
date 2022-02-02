@@ -2,7 +2,6 @@
 import React, { useRef, useState } from 'react';
 import { View, Alert, TextInput, Button, Text } from 'react-native';
 import { useEffect } from 'react';
-import { registerCard } from '../../../services/register_manneger'
 import { useContext } from 'react';
 import { AuthContext } from './../../../contexts/auth';
 import InputMask from '../Inputs/Mask/index';
@@ -38,7 +37,7 @@ export const CardRegisterForm = () => {
     const { user, idUser, card, saveCard } = useContext(AuthContext);
 
     const birthDateRef = useRef<InputReference>(null)
-    const filiationDateRef = useRef<InputReference>(null)
+    //const filiationDateRef = useRef<InputReference>(null)
     const zoneRef = useRef<InputReference>(null)
     const sectionRef = useRef<InputReference>(null)
     const cityRef = useRef<InputReference>(null)
@@ -51,7 +50,7 @@ export const CardRegisterForm = () => {
     const [rg, setRg] = useState("");
     const [cpf, setCpf] = useState("");
     const [birthDate, setBirthDate] = useState("");
-    const [filiationDate, setFiliationDate] = useState("");
+    //const [filiationDate, setFiliationDate] = useState("");
     const [electoralTitle, setElectoralTitle] = useState("");
     const [zone, setZone] = useState("");
     const [section, setSection] = useState("");
@@ -88,10 +87,7 @@ export const CardRegisterForm = () => {
             birthDateRef.current.focus()
             birthDateRef.current.clear()
 
-        } else if (!verificarInput(filiationDateRef)) {
-            filiationDateRef.current.focus()
-            filiationDateRef.current.clear()
-
+    
         } else if (!verificarInput(zoneRef)) {
             zoneRef.current.focus()
             zoneRef.current.clear()
@@ -103,7 +99,7 @@ export const CardRegisterForm = () => {
             let data = {
                 user_id: idUser,
                 birth_date: birthDateRef.current.value,
-                filiation_date: filiationDateRef.current.value,
+                
                 zone: zoneRef.current.value,
                 section: sectionRef.current.value,
                 city: cityRef.current.value,
@@ -127,7 +123,7 @@ export const CardRegisterForm = () => {
 
     function mensagem() {
 
-        let mensagem = Alert.alert('Cadastro de carteirinha', 'Sua carteirinha foi salva com sucesso' + ((cityRef.current?.value) ? ' Nome: ' + cityRef.current?.value : "") + " " + ((birthDateRef.current?.value) ? birthDateRef.current?.value : "") + ((filiationDateRef.current?.value) ? " email: " + filiationDateRef.current?.value : "") + ((zoneRef.current?.value) ? " password: " + zoneRef.current?.value : ""))
+        let mensagem = Alert.alert('Cadastro de carteirinha', 'Sua carteirinha foi salva com sucesso' + ((cityRef.current?.value) ? ' Nome: ' + cityRef.current?.value : "") + " " + ((birthDateRef.current?.value) ? birthDateRef.current?.value : "") + ((zoneRef.current?.value) ? " password: " + zoneRef.current?.value : ""))
 
 
         return mensagem;
@@ -140,7 +136,7 @@ export const CardRegisterForm = () => {
         <View>
 
             <InputMask
-                field="Date de nascimento"
+                field="Data de nascimento"
                 mask="date"
                 value={birthDate}
 
@@ -148,85 +144,13 @@ export const CardRegisterForm = () => {
                 maxLength={10}
                 inputRef={birthDateRef}
                 inputMaskChange={(text) => setBirthDate(text)}
-                onSubmitEditing={() => { filiationDateRef.current.focus(); }}
-                blurOnSubmit={false}
-                keyboardType="numeric"
-                returnKeyType={"next"}
-            />
-
-            <InputMask
-                field="Date de filiação"
-                mask="date"
-                value={filiationDate}
-                placeholder={'00/00/0000'}
-
-                maxLength={10}
-                inputRef={filiationDateRef}
-                inputMaskChange={(text) => setFiliationDate(text)}
-                onSubmitEditing={() => { zoneRef.current.focus(); }}
-                blurOnSubmit={false}
-                keyboardType="numeric"
-                returnKeyType={"next"}
-            />
-
-            <InputMask
-                field="Zona"
-                mask="zone"
-                value={zone}
-                placeholder={'000'}
-                maxLength={3}
-                inputRef={zoneRef}
-                inputMaskChange={(text) => setZone(text)}
-                onSubmitEditing={() => { sectionRef.current.focus(); }}
-                blurOnSubmit={false}
-                keyboardType="numeric"
-                returnKeyType={"next"}
-            />
-
-            <InputMask
-                field="Seção"
-                mask="section"
-                value={section}
-               
-                placeholder='0000'
-                maxLength={4}
-                inputRef={sectionRef}
-                inputMaskChange={(text) => setSection(text)}
-                onSubmitEditing={() => { cityRef.current.focus(); }}
-                blurOnSubmit={false}
-                keyboardType="numeric"
-                returnKeyType={"next"}
-            />
-
-
-            <Input
-                field='Cidade'
-                maxLength={50}
-                inputRef={cityRef}
-                placeholder={'São Paulo'}
-                onChangeText={(text) => { cityRef.current.value = text }}
-
-                onSubmitEditing={() => { stateRef.current.focus(); }}
-
-                keyboardType="default"
-                returnKeyType={"next"}
-            />
-
-
-            <Input
-                field='UF'
-                maxLength={2}
-
-                inputRef={stateRef}
-                placeholder={'SP'}
-                onChangeText={(text) => { stateRef.current.value = text }}
                 onSubmitEditing={() => { rgRef.current.focus(); }}
-                keyboardType="default"
+                blurOnSubmit={false}
+                keyboardType="numeric"
                 returnKeyType={"next"}
             />
 
-
-            <InputMask
+                       <InputMask
                 field="RG"
                 mask="rg"
                 inputMaskChange={(text: string) => setRg(text)}
@@ -263,11 +187,72 @@ export const CardRegisterForm = () => {
                 maxLength={14}
                 inputMaskChange={(text: string) => setElectoralTitle(text)}
                 inputRef={tituloRef}
-                onSubmitEditing={() => { handlesForm() }}
+                onSubmitEditing={() => {zoneRef.current.focus()}}
                
+                keyboardType="numeric"
+                returnKeyType={"next"}
+            />
+
+
+<InputMask
+                field="Zona"
+                mask="zone"
+                value={zone}
+                placeholder={'000'}
+                maxLength={3}
+                inputRef={zoneRef}
+                inputMaskChange={(text) => setZone(text)}
+                onSubmitEditing={() => { sectionRef.current.focus(); }}
+                blurOnSubmit={false}
+                keyboardType="numeric"
+                returnKeyType={"next"}
+            />
+
+            <InputMask
+                field="Seção"
+                mask="section"
+                value={section}
+               
+                placeholder='0000'
+                maxLength={4}
+                inputRef={sectionRef}
+                inputMaskChange={(text) => setSection(text)}
+                onSubmitEditing={() => { cityRef.current.focus();  }}
+                blurOnSubmit={false}
                 keyboardType="numeric"
                 returnKeyType={"send"}
             />
+
+ 
+<Input
+                field='Cidade'
+                maxLength={50}
+                inputRef={cityRef}
+                placeholder={'São Paulo'}
+                onChangeText={(text) => { cityRef.current.value = text }}
+
+                onSubmitEditing={() => { stateRef.current.focus(); }}
+
+                keyboardType="default"
+                returnKeyType={"next"}
+            />
+
+
+            <Input
+                field='UF'
+                maxLength={2}
+
+                inputRef={stateRef}
+                placeholder={'SP'}
+                onChangeText={(text) => { stateRef.current.value = text }}
+                onSubmitEditing={() => { handlesForm() }}
+                keyboardType="default"
+                returnKeyType={"next"}
+            />
+
+
+
+
 
 <Text> </Text>
             <Button ref={buttonRef} title="Salvar" onPress={() => { handlesForm() }} />

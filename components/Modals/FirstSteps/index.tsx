@@ -9,7 +9,8 @@ const FirstStepsModal: React.FC = () => {
     const {activeFirstStepsStage1, hiddenMessageIntroRegister} = useContext(FirstStepsContext);
 
 
-    return (<View style={{ backgroundColor: '#f10da5' }}>
+    return (
+    <View style={{ backgroundColor: '#f10da5' }}>
         <Modal
             animationType="slide"
             

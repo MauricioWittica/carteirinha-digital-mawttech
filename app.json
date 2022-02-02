@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "app-prtb",
-    "slug": "app-prtb",
+    "name": "Digital Card MAWTTECH",
+    "slug": "digital-card-mawttech",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,8 +13,9 @@
         [
           "expo-media-library",
           {
-            "photosPermissions": "Allow $(MAWittech) to acess your photos.",
-            "savePhotosPermissions": "Allow $(MAWittech) to save photos."
+            "photosPermissions": "Allow $(Digital Card MAWTTECH) to acess your photos.",
+            "savePhotosPermissions": "Allow $(Digital Card MAWTTECH) to save photos.",
+            "isAccessMediaLocationEnabled": true
             
           }
         ]
@@ -32,11 +33,11 @@
       
     },
     "android": {
-      "package": "com.mawittech.app_prtb",
+      "package": "com.mawittech.digital_card",
       "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "backgroundColor": "#ffffff"
        
       }
       
@@ -44,6 +45,6 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "description": ""
+    "description": "Este aplicativo é um protótipo de apresentação de venda, sua licença não se atribui ao uso diário. A base de dados do aplicativo é limpa após as devidas apresentações do mesmo."
   }
 }

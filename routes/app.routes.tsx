@@ -5,6 +5,7 @@ import ScreenDashBoard from '../screens/DashBoard';
 import ScreenBoxMessages from '../screens/BoxMessages';
 import ScreenCardEdit from '../screens/CardEdit';
 import ScreenAvatarEdit from '../screens/AvatarEdit';
+import ScreenHistory from '../screens/History';
 
 
 const AppStack = createStackNavigator();

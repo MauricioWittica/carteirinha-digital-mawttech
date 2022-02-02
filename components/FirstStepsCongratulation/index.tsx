@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, BackHandler, Button, ScrollView } from 'react-n
 import { TouchableHighlight } from 'react-native';
 
 import { FirstStepsContext } from '../../contexts/firstStepsActions';
+import CongratulationRegisterCardIcon from "../icons/Lottie/CongratulationRegisterCard";
 import SucessofullRegisterIcon from "../icons/Lottie/RegisterCard/index";
 import RegisterCardIcon from '../icons/Lottie/RegisterCard/index';
 import RegisterSelfIcon from "../icons/Lottie/RegisterSelf";
@@ -29,17 +30,15 @@ const FirstStepsCongratulation = () => {
 
             <View style={styles.container}>
 
-
                 <View style={styles.textHeaderContainer}>
 
-                    <Text style={styles.textTitle}>Parabens!</Text>
-                    <Text style={styles.textSubTitle}>Você concluiu a sua carteirinha digital PRTB.</Text>
-                   
+                    <Text style={styles.textTitle}>Parabéns!</Text>
+                    <Text style={styles.textSubTitle}>Você concluiu a sua carteirinha digital.</Text>
 
                 </View>
 
                 <View style={styles.ImageCenterContainer}>
-                    <RegisterSelfIcon/>
+                    <CongratulationRegisterCardIcon/>
                 </View>
 
 

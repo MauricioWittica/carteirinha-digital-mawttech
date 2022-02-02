@@ -11,7 +11,7 @@ import { useIsFocused } from '@react-navigation/native';
 import ImageAvatar from '../components/ImageAvatar/index';
 import ButtonAvatarEdit from '../components/Buttons/AvatarEdit/ButtonAvatarEdit';
 import { CardEditForm } from './../components/Forms/CardEdit/index';
-import CameraModal from '../components/Modals/CameraSelf';
+import CameraSelfEditModal from './../components/Modals/CameraSelfEdit/index';
 
 const Background = styled.View`
 flex:1;
@@ -69,7 +69,7 @@ const ScreenCardEdit = ({ navigation, route }) => {
 
 
             <Background>
-                <TopToolBar />
+               
 
 
                 <ScrollView>
@@ -81,7 +81,7 @@ const ScreenCardEdit = ({ navigation, route }) => {
                                 <ImageAvatar />
                                 <ButtonAvatarEdit />
                             </ContainerTela.Header.Picture>
-                            <CameraModal />
+                            <CameraSelfEditModal />
 
 
                         </ContainerTela.Header>

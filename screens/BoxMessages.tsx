@@ -7,6 +7,7 @@ import { NavMenuContext } from '../contexts/navMenu';
 import TopToolBar from '../components/top-bar/Topbar';
 import Footerbar from './../components/top-bar/Footerbar';
 import BoxMessageEmpty from '../components/icons/Lottie/BoxMessageEmpty';
+import ListMessageUser from './../components/ListMessageUser/index';
 
 
 
@@ -49,6 +50,7 @@ const ScreenBoxMessages = ({navigation,route}) => {
                     Você não tem novas mensagens.                    
                 </Text>               
             </View>
+            <ListMessageUser/>
             <BoxMessageEmpty/>
             </ContainerTela>
             <Footerbar screen={statePage}/>

@@ -6,7 +6,6 @@ import { NavMenuContext } from '../contexts/navMenu';
 import { useEffect } from 'react';
 import { ScrollView, Button } from 'react-native';
 import { Text } from 'react-native-paper';
-import { HaveAccountButton } from '../components/Buttons/HaveAccount';
 import { CardRegisterForm } from './../components/Forms/CardRegister/index';
 import { FirstRegisterAccountModal } from './../components/Modals/FirstRegisterAccount/index';
 
